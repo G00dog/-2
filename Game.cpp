@@ -8,10 +8,15 @@
 #include "InputHandler.h"
 #include "Background.h"
 #include "Ninja.h"
+#include "Tire.h"
+#include "Maze.h"
 
 Game* Game::s_pInstance = 0;
-extern float ninjaAngle;
+
 extern int slimeX;
+extern int tireX;
+extern int tireY;
+extern int maze[19][19];
 
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, int flags)
 {
@@ -77,11 +82,29 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 
   m_gameObjects.push_back(new Background(new LoaderParams(0,0,640,480,640,480,0,"background")));
 
-  //이미지 뒤집는법 모르겠음
-  m_gameObjects.push_back(new Player(new LoaderParams(100,100,32,32,64,64,0,"slime")));
+  //좌우반전 모르겠음
   m_gameObjects.push_back(new Slime(new LoaderParams(slimeX,400,32,32,64,64,0,"slime")));
   
-  m_gameObjects.push_back(new Ninja(new LoaderParams(500,50,32,32,64,64,ninjaAngle,"ninja")));
+  m_gameObjects.push_back(new Ninja(new LoaderParams(500,50,32,32,64,64,0,"ninja")));
+
+  for(int y = 0; y < 19; y++)
+  {
+    for(int x = 0; x < 19; x++)
+    {
+      if(maze[y][x] == 0)
+      {
+        m_gameObjects.push_back(new Maze(new LoaderParams(x*10,y*10,1,1,10,10,0,"whiteDot")));
+      }
+      else if(maze[y][x] == 1)
+      {
+        m_gameObjects.push_back(new Maze(new LoaderParams(x*10,y*10,1,1,10,10,0,"blackDot")));
+      }
+    }
+  }
+
+  m_gameObjects.push_back(new Tire(new LoaderParams(tireX,tireY,32,32,64,64,0,"tire")));
+
+  m_gameObjects.push_back(new Player(new LoaderParams(320,240,32,32,64,64,0,"slime")));
 
   return true;
 }

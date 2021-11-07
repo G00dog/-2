@@ -1,8 +1,4 @@
 #include "Ninja.h"
-#include "Game.h"
-#include <iostream>
-
-float ninjaAngle = 0.0f;
 
 Ninja::Ninja(const LoaderParams* pParams) : SDLGameObject(pParams) {}
 
@@ -13,7 +9,7 @@ void Ninja::draw()
 
 void Ninja::update()
 {
-  ninjaAngle += 1.0f;
+  m_Angle.setX(2);
   SDLGameObject::update();
 }
 

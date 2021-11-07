@@ -2,14 +2,15 @@
 
 #include "SDLGameObject.h"
 
-class Slime : public SDLGameObject
+class Tire : public SDLGameObject
 {
 public:
-  Slime(const LoaderParams* pParams);
+  Tire(const LoaderParams* pParams);
   virtual void draw();
   virtual void update();
   virtual void clean();
 
 private:
-  int slimeSpeed;
+  int tireXSpeed = 0;
+  int tireYSpeed = 0;
 };

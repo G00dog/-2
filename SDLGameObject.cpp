@@ -4,7 +4,7 @@
 
 SDLGameObject::SDLGameObject(const LoaderParams* pParams)
     : GameObject(pParams), m_position(pParams->getX(), pParams->getY()), 
-      m_velocity(0,0), m_acceleration(0,0)
+      m_velocity(0,0), m_acceleration(0,0),m_Angle(0,0)
 {
   m_width = pParams->getWidth();
   m_height = pParams->getHeight();
@@ -21,6 +21,7 @@ void SDLGameObject::update()
 {
   m_velocity += m_acceleration;
   m_position += m_velocity;
+  m_angle += m_Angle.getX();//각도 회전용
 }
 
 void SDLGameObject::draw(){
