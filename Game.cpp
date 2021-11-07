@@ -7,8 +7,11 @@
 #include "Slime.h"
 #include "InputHandler.h"
 #include "Background.h"
+#include "Ninja.h"
 
 Game* Game::s_pInstance = 0;
+extern float ninjaAngle;
+extern int slimeX;
 
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, int flags)
 {
@@ -73,8 +76,12 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
   }
 
   m_gameObjects.push_back(new Background(new LoaderParams(0,0,640,480,640,480,0,"background")));
+
+  //이미지 뒤집는법 모르겠음
   m_gameObjects.push_back(new Player(new LoaderParams(100,100,32,32,64,64,0,"slime")));
-  m_gameObjects.push_back(new Slime(new LoaderParams(100,400,32,32,64,64,0,"slime")));
+  m_gameObjects.push_back(new Slime(new LoaderParams(slimeX,400,32,32,64,64,0,"slime")));
+  
+  m_gameObjects.push_back(new Ninja(new LoaderParams(500,50,32,32,64,64,ninjaAngle,"ninja")));
 
   return true;
 }
