@@ -72,9 +72,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
     return false;
   }
 
-  m_gameObjects.push_back(new Background(new LoaderParams(0,0,640,480,"background")));
-  m_gameObjects.push_back(new Player(new LoaderParams(100,100,32,32,"slime")));
-  m_gameObjects.push_back(new Slime(new LoaderParams(640,400,32,32,"slime")));
+  m_gameObjects.push_back(new Background(new LoaderParams(0,0,640,480,640,480,0,"background")));
+  m_gameObjects.push_back(new Player(new LoaderParams(100,100,32,32,64,64,0,"slime")));
+  m_gameObjects.push_back(new Slime(new LoaderParams(100,400,32,32,64,64,0,"slime")));
 
   return true;
 }

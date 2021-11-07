@@ -13,10 +13,10 @@ void Slime::update()
 
   if(slimeX <= 0)
     m_velocity.setX(1);
-  else if(slimeX + 32 >= 640)
+  else if(slimeX + 32 >= 340)
     m_velocity.setX(-1);
   else
-    m_velocity.setX(1);
+    m_velocity.setX(-1);
 
   SDLGameObject::update();
 }

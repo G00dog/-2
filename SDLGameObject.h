@@ -21,5 +21,8 @@ protected:
   int m_height;
   int m_currentRow;
   int m_currentFrame;
+  int m_rwidth;
+  int m_rheight;
+  int m_angle;
   std::string m_textureID;
 };
