@@ -4,7 +4,6 @@
 #include "SDL.h"
 #include "TextureManager.h"
 #include "GameObject.h"
-#include "Player.h"
 #include <vector>
 
 class Game{
@@ -36,9 +35,7 @@ private:
   SDL_Window* m_pWindow;
   SDL_Renderer* m_pRenderer;
   SDL_Texture* m_pTexture;
-
   
-
   int m_currentFrame;
   
   bool m_bRunning;
