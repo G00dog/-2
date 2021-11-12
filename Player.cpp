@@ -20,6 +20,7 @@ void Player::handleInput()
   if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT))
   {
     m_velocity.setX(2);
+    SDLGameObject::m_flip = SDL_FLIP_NONE;
   }
   else
   {
@@ -29,6 +30,7 @@ void Player::handleInput()
   if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT))
   {
     m_velocity.setX(-2);
+    SDLGameObject::m_flip = SDL_FLIP_HORIZONTAL;
   }
 
   if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP))

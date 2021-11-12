@@ -25,5 +25,6 @@ protected:
   int m_rwidth;
   int m_rheight;
   int m_angle;
+  SDL_RendererFlip m_flip;
   std::string m_textureID;
 };

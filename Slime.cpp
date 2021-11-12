@@ -26,11 +26,13 @@ void Slime::update()
   {
     m_velocity.setX(1);
     slimeX+=1;
+    SDLGameObject::m_flip = SDL_FLIP_NONE;
   }
   else
   {
     m_velocity.setX(-1);
     slimeX-=1;
+    SDLGameObject::m_flip = SDL_FLIP_HORIZONTAL;
   }
 
   SDLGameObject::update();
