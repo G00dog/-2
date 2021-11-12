@@ -36,8 +36,6 @@ private:
   SDL_Renderer* m_pRenderer;
   SDL_Texture* m_pTexture;
   
-  int m_currentFrame;
-  
   bool m_bRunning;
 
 };

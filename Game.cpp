@@ -141,6 +141,7 @@ void Game::handleEvents()
 
 void Game::clean()
 {
+  TheInputHandler::Instance()->clean();
   SDL_DestroyWindow(m_pWindow);
   SDL_DestroyRenderer(m_pRenderer);
   SDL_Quit();
